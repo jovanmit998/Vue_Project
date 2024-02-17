@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+const msg = 'Fuckkkkk'
 </script>
 
 <template>
@@ -19,6 +21,7 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
+  <p :id="msg">Test</p>
 </template>
 
 <style scoped>
