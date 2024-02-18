@@ -1,8 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import {ref} from 'vue';
 
-const msg = 'Fuckkkkk'
+let isVisible = ref(false);
+
+const att = isVisible.value ? 'href' : 'id';
+function toggle() {
+  isVisible.value = !isVisible.value;
+  console.log(isVisible);
+}
 </script>
 
 <template>
@@ -21,7 +28,10 @@ const msg = 'Fuckkkkk'
   </header>
 
   <RouterView />
-  <p :id="msg">Test</p>
+  <a :href="isVisible ? 'https://github.com/' : 'https://www.udemy.com/?deal_code=&utm_term=Homepage&utm_content=Textlink&utm_campaign=Rakuten-default&ranMID=39197&ranEAID=%2F68Yt01SgtI&ranSiteID=_68Yt01SgtI-mzRVYtl26vEKqw2qQG0IJg&utm_source=aff-campaign&utm_medium=udemyads&LSNPUBID=%2F68Yt01SgtI'">Click me</a>
+  <button @click.prevent="toggle()">Make visible</button>
+  <p v-if="isVisible">I AM VISIBLE</p>
+  <span :[att]="'test'">Test</span>
 </template>
 
 <style scoped>
